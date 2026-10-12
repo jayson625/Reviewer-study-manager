@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --paper: #f6f1e7;
+    --paper-card: #fffdf7;
+    --ink: #262220;
+    --ink-soft: #5b534c;
+    --line: #ddd3bd;
+    --line-strong: #c9bc9e;
+    --accent: #b5502f;
+    --accent-ink: #ffffff;
+    --good: #3f6b4a;
+    --warn: #a3781f;
+}
+
+html,
+body {
+    background-color: var(--paper);
+    color: var(--ink);
+}
+
+body {
+    font-family: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+    background-image:
+        linear-gradient(var(--line) 1px, transparent 1px);
+    background-size: 100% 2rem;
+    background-attachment: local;
+}
+
+#app {
+    min-height: 100vh;
+}
+
+.font-mono-tab {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded border px-4 py-2 text-sm font-semibold transition-colors duration-100 disabled:cursor-not-allowed disabled:opacity-40;
+    }
+    .btn-primary {
+        @apply btn border-transparent text-white;
+        background-color: var(--accent);
+    }
+    .btn-primary:hover:not(:disabled) {
+        background-color: #9a4326;
+    }
+    .btn-secondary {
+        @apply btn bg-transparent;
+        border-color: var(--line-strong);
+        color: var(--ink);
+    }
+    .btn-secondary:hover:not(:disabled) {
+        background-color: var(--paper);
+    }
+    .btn-danger {
+        @apply btn border-transparent text-white bg-rose-700;
+    }
+    .btn-danger:hover:not(:disabled) {
+        @apply bg-rose-800;
+    }
+
+    .field-label {
+        @apply mb-1 block text-xs font-semibold uppercase tracking-wide;
+        color: var(--ink-soft);
+    }
+    .field-input {
+        @apply w-full rounded border bg-white px-3 py-2 text-sm text-[var(--ink)] focus:outline-none;
+        border-color: var(--line-strong);
+    }
+    .field-input:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px rgba(181, 80, 47, 0.15);
+    }
+    .field-error {
+        @apply mt-1 text-xs font-medium text-rose-700;
+    }
+
+    .index-card {
+        @apply relative rounded-sm border bg-[var(--paper-card)] p-4;
+        border-color: var(--line-strong);
+        box-shadow: 2px 3px 0 var(--line);
+    }
+}
